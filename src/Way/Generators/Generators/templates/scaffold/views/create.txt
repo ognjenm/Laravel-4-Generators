@@ -5,12 +5,12 @@
 <h1>Kreiraj novi unos {{Model}}</h1>
 
 {{ Form::open(array('route' => '{{models}}.store')) }}
-	<ul>
+
 {{formElements}}
-		<li>
+		<div>
 			{{ Form::submit('Submit', array('class' => 'btn btn-info')) }}
-		</li>
-	</ul>
+		</div>
+
 {{ Form::close() }}
 
 @if ($errors->any())
