@@ -2,7 +2,7 @@
 
 @section('main')
 
-<h1>Create {{Model}}</h1>
+<h1>Kreiraj novi unos {{Model}}</h1>
 
 {{ Form::open(array('route' => '{{models}}.store')) }}
 	<ul>
