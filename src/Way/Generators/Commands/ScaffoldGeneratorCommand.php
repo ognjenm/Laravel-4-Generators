@@ -63,7 +63,7 @@ class ScaffoldGeneratorCommand extends ResourceGeneratorCommand {
      */
     protected function getViewTemplatePath($view = 'view')
     {
-        return __DIR__."/../Generators/templates/scaffold/views/{$view}.txt";
+        return __DIR__."/../Generators/templates/scaffold/views/bootstrap/{$view}.txt";
     }
 
 }
