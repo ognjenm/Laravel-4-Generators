@@ -114,31 +114,42 @@ EOT;
             // TODO: add remaining types
             switch($type)
             {
-                case 'integer':
-                   $element = "{{ Form::input('number', '$name') }}";
-                    break;
+                // case 'integer':
+                //    $element = "{{ Form::input('number', '$name') }}";
+                //     break;
 
                 case 'text':
-                    $element = "{{ Form::textarea('$name') }}";
+                    $element = "{{ Form::textarea('$name', Input::old('$name'), array('class'=>'form-control')) }}";
                     break;
 
                 case 'boolean':
                     $element = "{{ Form::checkbox('$name') }}";
                     break;
 
+                case 'select':
+                    $element = "{{ Form::checkbox('$name') }}";
+                    break;
+
                 default:
-                    $element = "{{ Form::text('$name') }}";
+                    $element = "{{ Form::text('$name', Input::old('$name'), array('class'=>'form-control')) }}";
                     break;
             }
 
             // Now that we have the correct $element,
             // We can build up the HTML fragment
-            $frag = <<<EOT
-        <li>
-            {{ Form::label('$name', '$formalName:') }}
-            $element
-        </li>
-
+$frag = <<<EOT
+  <div class="form-group @if(\$errors && !\$errors->has('$name')) has-success has-feedback @elseif(\$errors && \$errors->has('$name')) has-error has-feedback @endif">
+    {{ Form::label('$name', '$formalName:', array('class'=>'control-label col-sm-3')) }}
+    <div class="col-sm-9">
+     $element
+    @if(\$errors->has('$name'))
+      <span class="glyphicon glyphicon-remove form-control-feedback"></span>
+      {{ \$errors->first('$name', '<span class="help-block">:message</span>') }}
+    @else
+    <span class="glyphicon glyphicon-ok form-control-feedback"></span>
+    @endif
+    </div>
+  </div>
 EOT;
 
             $formMethods[] = $frag;
