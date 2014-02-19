@@ -1,6 +1,6 @@
 @extends('layouts.scaffold')
 
-@section('main')
+@section('content')
 
 <h1>Edit {{Model}}</h1>
 {{ Form::model(${{model}}, array('method' => 'PATCH', 'class'=>'form-horizontal', 'route' => array('{{models}}.update', ${{model}}->id))) }}
