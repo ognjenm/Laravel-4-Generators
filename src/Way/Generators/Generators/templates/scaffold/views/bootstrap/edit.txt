@@ -3,14 +3,12 @@
 @section('main')
 
 <h1>Edit {{Model}}</h1>
-{{ Form::model(${{model}}, array('method' => 'PATCH', 'route' => array('{{models}}.update', ${{model}}->id))) }}
-	<ul>
+{{ Form::model(${{model}}, array('method' => 'PATCH', 'class'=>'form-horizontal', 'route' => array('{{models}}.update', ${{model}}->id))) }}
 {{formElements}}
-		<li>
+		<div>
 			{{ Form::submit('Update', array('class' => 'btn btn-info')) }}
 			{{ link_to_route('{{models}}.show', 'Cancel', ${{model}}->id, array('class' => 'btn')) }}
-		</li>
-	</ul>
+		</div>
 {{ Form::close() }}
 
 @if ($errors->any())
