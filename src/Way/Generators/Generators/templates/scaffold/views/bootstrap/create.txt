@@ -7,7 +7,7 @@
 {{ Form::open(array('route' => '{{models}}.store', 'class'=>'form-horizontal')) }}
 
 {{formElements}}
-		<div class="form-group>
+		<div class="form-group">
 			{{ Form::submit('Submit', array('class' => 'btn btn-info')) }}
 		</div>
 
