@@ -138,13 +138,13 @@ EOT;
             // Now that we have the correct $element,
             // We can build up the HTML fragment
 $frag = <<<EOT
-  <div class="form-group @if(\$errors && !\$errors->has('$name')) has-success has-feedback @elseif(\$errors && \$errors->has('$name')) has-error has-feedback @endif">
+  <div class="form-group @if(\$errors->any() && !\$errors->has('$name')) has-success has-feedback @elseif(\$errors->any() && \$errors->has('$name')) has-error has-feedback @endif">
     {{ Form::label('$name', '$formalName:', array('class'=>'control-label col-sm-3')) }}
     <div class="col-sm-9">
      $element
-    @if(\$errors && !\$errors->has('$name'))
+    @if(\$errors->any() && !\$errors->has('$name'))
     <span class="glyphicon glyphicon-ok form-control-feedback"></span>
-    @elseif(\$errors && \$errors->has('$name'))
+    @elseif(\$errors->any() && \$errors->has('$name'))
     <span class="glyphicon glyphicon-remove form-control-feedback"></span>
       {{ \$errors->first('$name', '<span class="help-block">:message</span>') }}
     @endif
