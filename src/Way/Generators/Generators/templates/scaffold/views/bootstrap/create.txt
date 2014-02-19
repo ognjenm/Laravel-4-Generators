@@ -7,17 +7,12 @@
 {{ Form::open(array('route' => '{{models}}.store', 'class'=>'form-horizontal')) }}
 
 {{formElements}}
-		<div>
+		<div class="form-group>
 			{{ Form::submit('Submit', array('class' => 'btn btn-info')) }}
 		</div>
 
 {{ Form::close() }}
 
-@if ($errors->any())
-	<ul>
-		{{ implode('', $errors->all('<li class="error">:message</li>')) }}
-	</ul>
-@endif
 
 @stop
 

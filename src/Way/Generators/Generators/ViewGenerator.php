@@ -142,11 +142,11 @@ $frag = <<<EOT
     {{ Form::label('$name', '$formalName:', array('class'=>'control-label col-sm-3')) }}
     <div class="col-sm-9">
      $element
-    @if(\$errors->has('$name'))
-      <span class="glyphicon glyphicon-remove form-control-feedback"></span>
-      {{ \$errors->first('$name', '<span class="help-block">:message</span>') }}
-    @else
+    @if(\$errors && !\$errors->has('$name'))
     <span class="glyphicon glyphicon-ok form-control-feedback"></span>
+    @elseif(\$errors && \$errors->has('$name'))
+    <span class="glyphicon glyphicon-remove form-control-feedback"></span>
+      {{ \$errors->first('$name', '<span class="help-block">:message</span>') }}
     @endif
     </div>
   </div>
