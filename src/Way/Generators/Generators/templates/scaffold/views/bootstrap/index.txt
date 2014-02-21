@@ -2,9 +2,9 @@
 
 @section('content')
 
-<h1>All {{Models}}</h1>
+<h1>Pregled svih unosa</h1>
 
-<p>{{ link_to_route('{{models}}.create', 'Add new {{model}}') }}</p>
+<p>{{ link_to_route('{{models}}.create', 'Add new {{model}}', '',array('class'=>'btn btn-info')) }}</p>
 
 @if (${{models}}->count())
 	<table class="table table-striped table-bordered">
@@ -23,7 +23,7 @@
 		</tbody>
 	</table>
 @else
-	There are no {{models}}
+	Ništa nije unijeto za {{models}}
 @endif
 
 @stop

@@ -1,10 +1,10 @@
-@extends('layouts.scaffold')
+@extends('admin.layouts.default')
 
 @section('content')
 
-<h1>Kreiraj novi unos {{Model}}</h1>
+<h1>Kreiraj novi unos</h1>
 
-{{ Form::open(array('route' => '{{models}}.store', 'class'=>'form-horizontal')) }}
+{{ Form::open(array('route' => 'admin.{{models}}.store', 'class'=>'form-horizontal')) }}
 
 {{formElements}}
 		<div class="form-group">

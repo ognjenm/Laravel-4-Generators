@@ -1,13 +1,13 @@
-@extends('layouts.scaffold')
+@extends('admin.layouts.default')
 
 @section('content')
 
-<h1>Edit {{Model}}</h1>
-{{ Form::model(${{model}}, array('method' => 'PATCH', 'class'=>'form-horizontal', 'route' => array('{{models}}.update', ${{model}}->id))) }}
+<h1>Prepravi {{Model}}</h1>
+{{ Form::model(${{model}}, array('method' => 'PATCH', 'class'=>'form-horizontal', 'route' => array('admin.{{models}}.update', ${{model}}->id))) }}
 {{formElements}}
 		<div class="form-group">
 			{{ Form::submit('Update', array('class' => 'btn btn-info')) }}
-			{{ link_to_route('{{models}}.show', 'Cancel', ${{model}}->id, array('class' => 'btn')) }}
+			{{ link_to_route('admin.{{models}}.show', 'Cancel', ${{model}}->id, array('class' => 'btn')) }}
 		</div>
 {{ Form::close() }}
 
